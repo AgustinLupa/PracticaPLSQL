@@ -4,14 +4,14 @@ namespace PuebaPLSQL
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             var data = new UserData();
-            var result = UserData.GetAllUsers();
+            var result = data.GetAllUsers();
 
-            foreach (var user in result)
+            await foreach (var user in result)
             {
-                Console.WriteLine(user.Id);
+                Console.WriteLine(user.Username);
             }            
         }
     }
